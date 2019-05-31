@@ -8,14 +8,16 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
+import { AlertsModule } from './alerts/alerts.module';
 
 import { ActionPostPageModule } from './action-post/action-post.module';
+import { HttpModule } from '@angular/http';
 
 
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
-  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, ActionPostPageModule],
+  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, ActionPostPageModule, HttpModule, AlertsModule ],
   providers: [
     StatusBar,
     SplashScreen,

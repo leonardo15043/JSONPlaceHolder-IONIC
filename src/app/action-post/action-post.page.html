@@ -14,10 +14,10 @@
 
     <form>
         <ion-item>
-            <ion-input placeholder="Titulo"></ion-input>
+            <ion-input placeholder="Titulo" name="title" [(ngModel)]="post.title"></ion-input>
         </ion-item>
         <ion-item>
-            <ion-textarea placeholder="Descripcion"></ion-textarea>
+            <ion-textarea placeholder="Descripcion" name="description" [(ngModel)]="post.description"></ion-textarea>
         </ion-item>
     </form>
 

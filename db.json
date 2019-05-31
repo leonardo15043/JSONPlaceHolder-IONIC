@@ -1,0 +1,19 @@
+{
+  "posts": [
+    {
+      "title": "Con tutela, buscan revivir las 16 curules para las víctimas en el Congreso",
+      "description": "Este viernes radicaron una tutela en el Tribunal de Cundinamarca para que reviva la iniciativa.",
+      "id": 1
+    },
+    {
+      "title": "Esta es la ubicación de las gasolineras sancionadas por la SIC",
+      "description": "Por no entregar la cantidad exacta, las estaciones multadas deben pagar 682 millones de pesos.",
+      "id": 2
+    },
+    {
+      "title": "Uribe alertó sobre descertificación al país por libertad de Santrich",
+      "description": "El expresidente se refirió al tema en acto de apoyo a campaña a la Gobernación de Elsa Noguera.",
+      "id": 3
+    }
+  ]
+}

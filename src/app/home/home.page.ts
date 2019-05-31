@@ -1,6 +1,8 @@
-import { Component } from '@angular/core';
-import { ModalController } from '@ionic/angular';
+import { Component, ViewChild } from '@angular/core';
+import { ModalController, IonList } from '@ionic/angular';
 import { ActionPostPage } from '../action-post/action-post.page';
+import { PostService } from '../services/post.service';
+import { AlertsModule } from '../alerts/alerts.module';
 
 
 @Component({
@@ -10,12 +12,36 @@ import { ActionPostPage } from '../action-post/action-post.page';
 })
 export class HomePage {
 
-  constructor(
-    public modalController: ModalController
-  ) {}
+  @ViewChild('list') list: IonList;
 
-  delete( post ) {
-    console.log(post);
+  posts: any = [];
+
+  constructor(
+    public modalController: ModalController,
+    private postService: PostService,
+    public alertsModule: AlertsModule,
+  ) {
+    this.getAll();
+  }
+
+  getAll() {
+
+    this.postService.getAll()
+        .subscribe( data => {
+          this.posts = data;
+        });
+
+  }
+
+  delete( id_post ) {
+
+    this.postService.deletePost( id_post )
+    .subscribe( item => {
+      this.getAll();
+    }, err => {
+      this.alertsModule.confirmationAlert('Error', 'Ocurrio un error , intente mas tarde', '');
+    });
+
   }
 
   async actionPost( data ) {
@@ -28,8 +54,10 @@ export class HomePage {
       }
     });
 
+    this.list.closeSlidingItems();
+
     modal.onDidDismiss()  .then(( res ) => {
-      
+      this.getAll();
     });
 
     return await modal.present();
