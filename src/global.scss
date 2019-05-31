@@ -9,3 +9,12 @@
 @import '~@ionic/angular/css/text-alignment.css';
 @import '~@ionic/angular/css/text-transformation.css';
 @import '~@ionic/angular/css/flex-utils.css';
+// modal post
+ion-modal#modal_post {
+    --height: 42%;
+}
+
+#modal_post .modal-wrapper {
+    position: absolute;
+    bottom: 0;
+}
