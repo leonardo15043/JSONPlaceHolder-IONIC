@@ -24,6 +24,8 @@ export class HomePage {
     this.getAll();
   }
 
+  // Lista de post
+
   getAll() {
 
     this.postService.getAll()
@@ -32,6 +34,8 @@ export class HomePage {
         });
 
   }
+
+  // Metodo para eliminar cada post
 
   delete( id_post ) {
 
@@ -43,6 +47,9 @@ export class HomePage {
     });
 
   }
+
+  // Modal para mostrar el contenido de la pagina "ActionPostPage" enviando los datos del
+  // objeto en la variable data para que luego se imprima esta informacion en el modal
 
   async actionPost( data ) {
 
@@ -56,7 +63,7 @@ export class HomePage {
 
     this.list.closeSlidingItems();
 
-    modal.onDidDismiss()  .then(( res ) => {
+    modal.onDidDismiss().then(( res ) => {
       this.getAll();
     });
 

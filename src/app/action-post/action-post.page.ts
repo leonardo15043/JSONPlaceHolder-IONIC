@@ -10,6 +10,7 @@ import { ModalController } from '@ionic/angular';
 })
 export class ActionPostPage implements OnInit {
 
+  // por medio de un decorador capturamos los datos que le mandamos al modal
   @Input() data:any;
 
   post: any = {};
@@ -22,6 +23,7 @@ export class ActionPostPage implements OnInit {
 
   ngOnInit() {
 
+    // validamos si estamos creando o editando registros para que me cargue automaticamente los datos en el formulario
     if ( this.data != '') {
       this.post = this.data;
     }
@@ -30,11 +32,14 @@ export class ActionPostPage implements OnInit {
 
   save() {
 
-      if ( this.data == '') {
+    //  validamos si estamos editando o creando
 
+      if ( this.data == '') {
+        // le pasamos al metodo addPost del servicio postService los parametros del post para que los agregue al JSON
         this.postService.addPost( this.post )
         .subscribe( item => {
           this.alertsModule.confirmationAlert('', 'Post creado correctamente', '');
+          // cerramos el modal
           this.modalCtrl.dismiss();
         }, err => {
           this.alertsModule.confirmationAlert('Error', 'Ocurrio un error , intente mas tarde', '');
