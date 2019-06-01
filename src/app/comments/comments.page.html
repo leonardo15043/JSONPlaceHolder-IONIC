@@ -1,0 +1,24 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-button [routerLink]="['/home']">
+                Posts
+            </ion-button>
+        </ion-buttons>
+        <ion-title>Comentarios</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+    <ion-card *ngFor="let item of comments">
+        <ion-card-header>
+            <ion-card-title>Comentario Nº {{ item.id }}</ion-card-title>
+        </ion-card-header>
+
+        <ion-card-content>
+            {{ item.body }}
+        </ion-card-content>
+    </ion-card>
+
+</ion-content>

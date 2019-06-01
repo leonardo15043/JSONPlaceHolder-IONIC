@@ -13,6 +13,7 @@
         <ion-item-sliding *ngFor="let item of posts">
             <ion-item-options side="start">
                 <ion-item-option color="danger" (click)="delete(item.id)" expandable>Eliminar</ion-item-option>
+                <ion-item-option (click)="actionPost(item)" expandable>Actualizar</ion-item-option>
             </ion-item-options>
 
             <ion-item>
@@ -20,7 +21,7 @@
             </ion-item>
 
             <ion-item-options side="end">
-                <ion-item-option (click)="actionPost(item)" expandable>Actualizar</ion-item-option>
+                <ion-item-option [routerLink]="['/comments', item.id]" expandable>Comentarios</ion-item-option>
             </ion-item-options>
         </ion-item-sliding>
 

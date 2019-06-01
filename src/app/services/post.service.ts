@@ -10,6 +10,7 @@ export class PostService {
 
   private urldb = environment.url_api;
   posts: string;
+  comments: string;
 
   constructor(
     private http: Http
@@ -60,6 +61,16 @@ export class PostService {
   deletePost( id ) {
     this.posts = `${ this.urldb }/posts/${ id }`;
     return this.http.delete( this.posts )
+    .pipe(
+      map(res => {
+          return res.json();
+      })
+    );
+  }
+
+  getComment( id_post ) {
+    this.comments = `${ this.urldb }/posts/${ id_post }/comments`;
+    return this.http.get( this.comments )
     .pipe(
       map(res => {
           return res.json();
